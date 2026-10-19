@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>Open Shia Companion</title>
+</head>
+<body>
+  <h2>Shia Companion</h2>
+  <p>Opening the correct app store...</p>
+  <p id="fallback"></p>
+
+  <script>
+    const apple =
+      "https://apps.apple.com/ca/app/shia-companion/id889716236";
+
+    const android =
+      "https://play.google.com/store/apps/details?id=com.developer110.shiacompanion";
+
+    const ua = navigator.userAgent;
+
+    if (/iPhone|iPad|iPod/i.test(ua)) {
+      location.replace(apple);
+    } else if (/Android/i.test(ua)) {
+      location.replace(android);
+    } else {
+      document.getElementById("fallback").innerHTML =
+        `<a href="${apple}">App Store</a> | ` +
+        `<a href="${android}">Google Play</a>`;
+    }
+  </script>
+</body>
+</html>
